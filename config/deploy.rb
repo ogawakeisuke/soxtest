@@ -4,7 +4,7 @@ require "bundler/capistrano"
 load 'deploy/assets'
 
 set :application, "app"
-set :repository,  "git://github.com:ogawakeisuke/soxtest.git"
+set :repository,  "git@github.com:ogawakeisuke/soxtest.git"
 set :scm, :git
 set :branch, "master"
 
