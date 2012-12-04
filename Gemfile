@@ -26,6 +26,10 @@ end
 
 gem 'jquery-rails'
 
+gem 'execjs'
+gem 'therubyracer'
+
+
 gem 'capistrano'
 gem 'capistrano_colors'
 
