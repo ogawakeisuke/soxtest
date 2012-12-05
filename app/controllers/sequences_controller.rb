@@ -1,4 +1,6 @@
 class SequencesController < ApplicationController
+  before_filter :auth, :only => "index"
+
   def index
   end
 
@@ -23,5 +25,15 @@ class SequencesController < ApplicationController
 
     send_file("#{basedir}composit.wav")
   end
+
+   def auth
+    name = "test"
+    pass = "test"
+
+    authenticate_or_request_with_http_basic() do |n, p|
+      n == name &&
+        p == pass
+    end
+  end 
 
 end
