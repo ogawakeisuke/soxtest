@@ -1,5 +1,5 @@
 class SequencesController < ApplicationController
-  before_filter :auth, :only => "index"
+  before_filter :auth, :only => "index" if Rails.env.production?
 
   def index
   end
