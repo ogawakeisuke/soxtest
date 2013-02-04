@@ -46,7 +46,7 @@ end
 
 #unicornスタート設定　完コピ
 namespace :deploy do
-  task :start, :roles => :app do 
+  task :start, :roles => :web do 
     run "cd #{current_path} && bundle exec unicorn_rails -c #{unicorn_config} -E #{rails_env} -D"
   end
   task :stop, :roles => :app do 
