@@ -1,5 +1,5 @@
 class SequencesController < ApplicationController
-  before_filter :auth, :only => "index" if Rails.env.production?
+  #before_filter :auth, :only => "index" if Rails.env.production?
 
   def index
   end
@@ -26,6 +26,7 @@ class SequencesController < ApplicationController
     send_file("#{basedir}composit.wav")
   end
 
+private
    def auth
     name = "test"
     pass = "test"
