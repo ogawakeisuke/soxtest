@@ -30,7 +30,7 @@ set :git_shallow_clone, 1
 web_1 = "ec2-54-248-69-180.ap-northeast-1.compute.amazonaws.com"
 web_2 = "ec2-54-249-148-101.ap-northeast-1.compute.amazonaws.com"
 
-role :web, "#{web_1}, #{web_2}"                          # Your HTTP server, Apache/etc
+role :web, "#{web_1}", "#{web_2}"                          # Your HTTP server, Apache/etc
 role :app, "#{web_1}"                          # This may be the same as your `Web` server
 role :db,  "ec2-54-248-156-3.ap-northeast-1.compute.amazonaws.com", :primary => true # This is where Rails migrations will run
 
