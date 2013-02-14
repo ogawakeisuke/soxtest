@@ -10,7 +10,7 @@ set :branch, "master"
 
 set :rails_env, "production"
 set :user, 'soxtest'
-set :user_sudo, false
+set :use_sudo, false
 
 set :deploy_to, "/home/soxtest/#{application}"
 
