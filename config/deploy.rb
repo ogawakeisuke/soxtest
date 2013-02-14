@@ -31,7 +31,7 @@ web_1 = "ec2-54-248-69-180.ap-northeast-1.compute.amazonaws.com"
 web_2 = "ec2-54-249-148-101.ap-northeast-1.compute.amazonaws.com"
 
 role :web, "#{web_1}", "#{web_2}"                          # Your HTTP server, Apache/etc
-role :app, "#{web_1}", "#{web_2}"                          # This may be the same as your `Web` server
+role :app, "#{web_1}"                          # This may be the same as your `Web` server
 role :db,  "#{web_1}", :primary => true # This is where Rails migrations will run
 
 set :unicorn_config, "#{current_path}/config/unicorn.rb"
@@ -49,10 +49,10 @@ namespace :deploy do
   task :start, :roles => :web do 
     run "cd #{current_path} && bundle exec unicorn_rails -c #{unicorn_config} -E #{rails_env} -D"
   end
-  task :stop, :roles => :app do 
+  task :stop, :roles => :web do 
     run "if test -f #{unicorn_pid};then kill `cat #{unicorn_pid}`; fi"
   end
-  task :restart, :roles => :app do
+  task :restart, :roles => :web do
     stop
     start
   end
